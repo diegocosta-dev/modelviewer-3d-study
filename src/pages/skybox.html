@@ -1,0 +1,33 @@
+<model-viewer x-data="slider" id="model-slider" 
+  src="./assets/suzane.glb"
+  shadow-intensity="1"
+  orientation="0 0 0"
+  ar
+  camera-controls
+  touch-action="pan-y"
+  alt="A 3D model carousel"
+  skybox-image="./textures/skybox1.webp"
+>
+  <button slot="ar-button" id="ar-button">
+      View in your space
+  </button>
+  
+  <div id="ar-prompt">
+    <img src="./icons/ar_hand_prompt.png">
+  </div>
+
+  <button id="ar-failure">
+    AR is not tracking!
+  </button>
+
+  <div class="slider px-6">
+    <div class="slides">
+      <button x-on:click="switchSkybox($event.target, 'skybox1.webp')" class="slide selected" style="background-image: url('./textures/skybox1.png');">
+      </button>
+      <button x-on:click="switchSkybox($event.target, 'skybox2.webp')" class="slide" style="background-image: url('./textures/skybox2.png');">
+      </button>
+      <button x-on:click="switchSkybox($event.target, 'skybox3.webp')" class="slide" style="background-image: url('./textures/skybox3.png');">
+      </button>
+    </div>
+  </div>
+</model-viewer>
