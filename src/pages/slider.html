@@ -1,30 +1,33 @@
-<model-viewer
-    id="model"
-    src="../assets/model.glb"
-    poster="./thumb/Chair.webp"
-    shadow-intensity="1" ar camera-controls touch-action="pan-y"
-    alt="A 3D model carousel"
-  >
-
-    <button slot="ar-button" id="ar-button">
+<model-viewer x-data="slider" id="model-slider" 
+  src="./assets/suzane.glb"
+  poster="./assets/suzane.webp"
+  shadow-intensity="1"
+  orientation="0 0 0"
+  ar
+  camera-controls
+  touch-action="pan-y"
+  alt="A 3D model carousel"
+>
+  <button slot="ar-button" id="ar-button">
       View in your space
-    </button>
+  </button>
   
-    <div id="ar-prompt">
-      <img src="./icons/hand.png">
+  <div id="ar-prompt">
+    <img src="./icons/ar_hand_prompt.png">
+  </div>
+
+  <button id="ar-failure">
+    AR is not tracking!
+  </button>
+
+  <div class="slider px-6">
+    <div class="slides">
+      <button x-on:click="switchSrc($event.target, 'suzane')" class="slide selected" style="background-image: url('./assets/suzane.webp');">
+      </button>
+      <button x-on:click="switchSrc($event.target, 'ball')" class="slide" style="background-image: url('./assets/ball.webp');">
+      </button>
+      <button x-on:click="switchSrc($event.target, 'banco')" class="slide" style="background-image: url('./assets/banco.webp');">
+      </button>
     </div>
-  
-    <button id="ar-failure">
-      AR is not tracking!
-    </button>
-  
-    <div class="slider">
-      <div class="slides">
-        <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('../../assets/ShopifyModels/Chair.webp');"></button>
-        <button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('../../assets/ShopifyModels/Mixer.webp');"></button>
-        <button class="slide" onclick="switchSrc(this, 'GeoPlanter')" style="background-image: url('../../assets/ShopifyModels/GeoPlanter.webp');"></button>
-        <button class="slide" onclick="switchSrc(this, 'ToyTrain')" style="background-image: url('../../assets/ShopifyModels/ToyTrain.webp');"></button>
-        <button class="slide" onclick="switchSrc(this, 'Canoe')" style="background-image: url('../../assets/ShopifyModels/Canoe.webp');"></button>
-      </div>
-    </div>
-  </model-viewer>
+  </div>
+</model-viewer>

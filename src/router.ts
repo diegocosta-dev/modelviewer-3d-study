@@ -12,8 +12,7 @@ const router = (event: Event): void => {
 
 const routes: Record<string, string> = {
   404: "./src/error/404.html",
-  "/": "./src/pages/home.html",
-  "/slider": "./src/pages/slider.html",
+  "/": "./src/pages/slider.html",
 };
 
 const handleLocation = async (): Promise<void> => {
