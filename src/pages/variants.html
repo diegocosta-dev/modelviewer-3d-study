@@ -1,0 +1,30 @@
+<model-viewer
+  id="suzane"
+  x-data="controlers"
+  camera-controls
+  touch-action="pan-y"
+  src="./assets/variants.glb"
+  poster="./assets/suzane.webp"
+  ar
+  alt="A 3D model of a suzane"
+  shadow-intensity="1"
+  orientation="0 0 0"
+>
+  <button slot="ar-button" id="ar-button">
+    View in your space
+  </button>
+
+  <div id="ar-prompt">
+  <img src="./icons/ar_hand_prompt.png">
+  </div>
+
+  <button id="ar-failure">
+  AR is not tracking!
+  </button>
+
+  <div x-init="variants()" class="slider px-6">
+    <div class="slides">
+      <div>Variant: <select id="variant"></select></div>
+    </div>
+  </div>
+</model-viewer>

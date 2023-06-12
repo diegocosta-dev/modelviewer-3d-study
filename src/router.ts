@@ -14,6 +14,7 @@ const routes: Record<string, string> = {
   404: "./src/error/404.html",
   "/": "./src/pages/slider.html",
   "/skybox": "./src/pages/skybox.html",
+  "/variants": "./src/pages/variants.html",
 };
 
 const handleLocation = async (): Promise<void> => {

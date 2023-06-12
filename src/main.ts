@@ -1,13 +1,13 @@
 import '@google/model-viewer';
 import './router';
-import slider from './js/slider';
+import controlers from './js/controlers';
 import Alpine from 'alpinejs'
 import '../index.css';
 
 window.Alpine = Alpine
 
 document.addEventListener('alpine:init', () => {
-  Alpine.data('slider', slider)
+  Alpine.data('controlers', controlers)
 })
 
 Alpine.start()

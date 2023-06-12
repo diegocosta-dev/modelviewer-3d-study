@@ -1,4 +1,4 @@
-const slider = () => ({
+const controlers = () => ({
   switchSrc(element: HTMLElement, name: string) {
     const modelViewer = document.querySelector<any>("model-viewer");
     
@@ -30,7 +30,28 @@ const slider = () => ({
       // Keep slider interactions from affecting the XR scene.
       ev.preventDefault();
     });
+  },
+
+  variants() {
+    const modelViewerVariants: any = document.querySelector("model-viewer#suzane");
+    const select = document.querySelector('#variant');
+
+    modelViewerVariants.addEventListener('load', () => {
+      const names = modelViewerVariants.availableVariants;
+      console.log(names)
+      for (const name of names) {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        select?.appendChild(option);
+      }
+    });
+
+    select?.addEventListener('input', (event) => {
+      //@ts-ignore
+      modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
+    });
   }
 })
 
-export default slider
+export default controlers
